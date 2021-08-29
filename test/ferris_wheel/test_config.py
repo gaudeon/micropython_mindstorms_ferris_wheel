@@ -4,7 +4,12 @@ import unittest
 usys.path.insert(1, 'src')
 from ferris_wheel.config import FerrisWheelConfig
 
-class TestFerrisWheel():
-    pass
+class TestFerrisWheel(unittest.TestCase):
+    def setup(self):
+        pass
+    
+    def test_assert(self):
+        self.assertTrue(True)
 
-print(usys.path)
+if __name__ == '__main__':
+    unittest.main()
