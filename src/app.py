@@ -93,4 +93,4 @@ def main():
                 ferris_wheel_motion.rotate_reverse(current_speed)
 
 # run the thing
-main()
+#main()

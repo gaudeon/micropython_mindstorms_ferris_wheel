@@ -6,7 +6,7 @@ dist:
 	python3 bin/compress.py
 
 pytest:
-	micropython test/test_ferris_wheel_config.py
+	micropython test/ferris_wheel/test_config.py
 
 .PHONY:
 	pytest

@@ -1,5 +1,17 @@
-FROM alpine:latest
+FROM debian:stretch-slim
 
-RUN apk update && \
-    apk add build-base bash git python3 py3-pip --no-cache && \
-    apk add micropython --no-cache --repository http://dl-2.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+RUN apt-get update && \
+    apt-get install -y build-essential libffi-dev git pkg-config python python3 && \
+    rm -rf /var/lib/apt/lists/* && \
+    git clone https://github.com/micropython/micropython.git && \
+    cd micropython && \
+    git submodule update --init && \
+    cd mpy-cross && \
+    make && \
+    cd .. && \
+    cd ports/unix && \
+    make axtls && \
+    make && \
+    make install && \
+    cd ../../.. && \
+    rm -rf micropython
