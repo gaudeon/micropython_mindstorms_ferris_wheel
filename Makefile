@@ -1,3 +1,6 @@
+setup:
+	micropython -m upip install -r requirements.txt
+
 clean:
 	rm -rf dist/
 
