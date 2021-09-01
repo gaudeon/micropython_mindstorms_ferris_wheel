@@ -1,3 +1,5 @@
+import math
+
 class FerrisWheelMotion:
     def __init__(self, left_motor:Motor, right_motor:Motor, config:FerrisWheelConfig):
         self.config = config
