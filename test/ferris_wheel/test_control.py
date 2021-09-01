@@ -2,14 +2,31 @@ import usys
 import unittest
 
 usys.path.insert(1, 'src')
-from ferris_wheel.motion import FerrisWheelMotion
+from ferris_wheel.control import FerrisWheelControl
 
-class TestFerrisWheelMotion(unittest.TestCase):
-    def setup(self):
-        pass
-    
-    def test_assert(self):
-        self.assertTrue(True)
+class MockConfig:
+    def __init__(self):
+        self.max_degrees = 10
+        self.speed_limit = 10
+        self.speed_increment = 1
+
+class MockMotor:
+    def __init__(self, speed):
+        self.speed = speed
+
+    def get_position(self):
+        return self.speed
+
+class TestFerrisWheelControl(unittest.TestCase):
+    def test_get_speed(self):
+        ferris_wheel_config = MockConfig()
+        motor = MockMotor(5)
+        expected = 5
+
+        ferris_wheel_control = FerrisWheelControl(motor, ferris_wheel_config)
+        speed = ferris_wheel_control.get_speed()
+
+        self.assertEqual(speed, expected, "ferris wheel control get speed returns correct result")
 
 if __name__ == '__main__':
     unittest.main()
