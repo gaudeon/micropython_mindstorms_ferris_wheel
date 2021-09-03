@@ -1,3 +1,4 @@
+from mindstorms import Motor
 import math
 
 class FerrisWheelControl:

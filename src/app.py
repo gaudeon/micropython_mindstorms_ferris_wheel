@@ -1,3 +1,10 @@
+from mindstorms import MSHub, Motor
+from mindstorms.control import Timer
+
+from ferris_wheel.config import FerrisWheelConfig
+from ferris_wheel.control import FerrisWheelControl
+from ferris_wheel.motion import FerrisWheelMotion
+
 def main():
     print("starting...")
 

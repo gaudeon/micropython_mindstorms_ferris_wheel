@@ -2,6 +2,8 @@ import usys
 import unittest
 
 usys.path.insert(1, 'src')
+usys.path.insert(0, 'mock')
+
 from ferris_wheel.config import FerrisWheelConfig
 
 class TestFerrisWheelConfig(unittest.TestCase):

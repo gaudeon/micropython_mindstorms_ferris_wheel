@@ -1,9 +1,6 @@
 import usys
 import unittest
 
-usys.path.insert(1, 'src')
-from ferris_wheel.control import FerrisWheelControl
-
 class MockConfig:
     def __init__(self):
         self.max_degrees = 10
@@ -16,6 +13,11 @@ class MockMotor:
 
     def get_position(self):
         return self.speed
+
+usys.path.insert(0, 'src')
+usys.path.insert(0, 'mock')
+
+from ferris_wheel.control import FerrisWheelControl
 
 class TestFerrisWheelControl(unittest.TestCase):
     def test_get_speed(self):
